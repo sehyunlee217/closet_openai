@@ -1,0 +1,26 @@
+{
+  "name": "closet_openai",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sehyunlee217/closet_openai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sehyunlee217/closet_openai/issues"
+  },
+  "homepage": "https://github.com/sehyunlee217/closet_openai#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^4.10.0"
+  }
+}
