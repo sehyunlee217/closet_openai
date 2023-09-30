@@ -22,15 +22,33 @@ const weatherapiURL = `https://api.openweathermap.org/data/2.5/weather?units=met
 async function checkWeather() {
     const res = await fetch(weatherapiURL);
     let data = await res.json();
-    console.log(data.weather[0].description);
-    console.log(data.main);
+
+    const weather = (data.weather[0].description);
+    const minTemp = data.main.temp_min;
+    const maxTemp = data.main.temp_max;
+
+    const weatherData = { weather: weather, min: minTemp, max: maxTemp };
+
+    return weatherData;
 }
 
-checkWeather();
 
-// const completion = await openai.chat.completions.create({
-//     model: "gpt-3.5-turbo",
-//     messages: [{ "role": "user", "content": `What to wear for ` }]
-// });
+async function returnOutfit() {
+    try {
+        const weatherData = await checkWeather();
 
-// console.log(completion.choices[0].message);
+        const completion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [{
+                "role": "user",
+                "content": `What to wear during low: ${ weatherData.min } celcius , high: ${ weatherData.max } celcius,
+                for ${ weatherData.weather }`
+            }]
+        });
+        console.log(completion.choices[0].message.content);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+returnOutfit();

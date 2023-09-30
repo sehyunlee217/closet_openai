@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"node script.js"
+    "start": "node script.js",
+    "dev": "nodemon script.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,10 @@
   "homepage": "https://github.com/sehyunlee217/closet_openai#readme",
   "dependencies": {
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "openai": "^4.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
